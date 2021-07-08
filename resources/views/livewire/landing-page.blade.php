@@ -1,4 +1,4 @@
-<div x-data="{showSubscribe:false}">
+<div x-data="{showSubscribe:false, showSuccess:false}">
     <div class="flex flex-col bg-indigo-900 w-full h-screen">
 
         <nav class="flex pt-5 justify-between container mx-auto text-indigo-200">
@@ -24,7 +24,8 @@
                     necessitatibus debitis.
                 </p>
 
-                <x-button x-on:click="showSubscribe=true" class="py-3 px-8 bg-red-500 hover:bg-red-600">
+                <x-button x-on:click="showSubscribe=true,showSuccess=true"
+                    class="py-3 px-8 bg-red-500 hover:bg-red-600">
                     Subscribe
                 </x-button>
             </div>
@@ -46,6 +47,22 @@
                     Get In
                 </x-button>
             </form>
+        </div>
+    </div>
+
+
+    <div class="flex fixed top-0 bg-green-500 bg-opacity-60 items-center w-full h-full" x-show="showSuccess"
+        @click.self="showSuccess=false" x-on:keydown.escape.window="showSuccess=false">
+        <div class="bg-pink-500 m-auto shadow-2xl rounded-xl p-8">
+            <p class="animate-pulse text-white text-9xl font-extrabold text-center">
+                &check;
+            </p>
+            <p class="text-white text-5xl font-extrabold text-center">
+                Great!
+            </p>
+            <p class="text-white text-3xl text-center">
+                See you in your inbox.
+            </p>
         </div>
     </div>
 </div>
