@@ -33,25 +33,35 @@
     </div>
 
 
-    <div class="flex fixed top-0 bg-gray-900 bg-opacity-60 items-center w-full h-full" x-show="showSubscribe"
-        @click.self="showSubscribe=false">
-        <div class="bg-pink-500 m-auto shadow-2xl rounded-xl p-8">
-            <p class="text-white text-5xl font-extrabold text-center">
-                Lets do it!
-            </p>
-            <form wire:submit.prevent="subscribe" class="flex flex-col items-center p-24">
-                <x-input class="px-5 py-3 w-80 border border-blue-400" type="email" name="email"
-                    placeholder="Email address" wire:model="email"></x-input>
-                <span class="text-gray-100 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                <x-button class="px-5 py-8 mt-5 w-80 bg-blue-500 justify-center">
-                    Get In
-                </x-button>
-            </form>
-        </div>
-    </div>
+    <x-modal class="bg-pink-500" trigger="showSubscribe">
+        <p class="text-white text-5xl font-extrabold text-center">
+            Lets do it!
+        </p>
+        <form wire:submit.prevent="subscribe" class="flex flex-col items-center p-24">
+            <x-input class="px-5 py-3 w-80 border border-blue-400" type="email" name="email" placeholder="Email address"
+                wire:model="email"></x-input>
+            <span class="text-gray-100 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <x-button class="px-5 py-8 mt-5 w-80 bg-blue-500 justify-center">
+                Get In
+            </x-button>
+        </form>
+    </x-modal>
+
+    <x-modal class="bg-green-500" trigger="showSuccess">
+        <p class="animate-pulse text-white text-9xl font-extrabold text-center">
+            &check;
+        </p>
+        <p class="text-white text-5xl font-extrabold text-center">
+            Great!
+        </p>
+        <p class="text-white text-3xl text-center">
+            See you in your inbox.
+        </p>
+    </x-modal>
 
 
-    <div class="flex fixed top-0 bg-green-500 bg-opacity-60 items-center w-full h-full" x-show="showSuccess"
+
+    {{-- <div class="flex fixed top-0 bg-green-500 bg-opacity-60 items-center w-full h-full" x-show="showSuccess"
         @click.self="showSuccess=false" x-on:keydown.escape.window="showSuccess=false">
         <div class="bg-pink-500 m-auto shadow-2xl rounded-xl p-8">
             <p class="animate-pulse text-white text-9xl font-extrabold text-center">
@@ -64,5 +74,5 @@
                 See you in your inbox.
             </p>
         </div>
-    </div>
+    </div> --}}
 </div>
