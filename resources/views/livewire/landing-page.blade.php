@@ -40,7 +40,9 @@
         <form wire:submit.prevent="subscribe" class="flex flex-col items-center p-24">
             <x-input class="px-5 py-3 w-80 border border-blue-400" type="email" name="email" placeholder="Email address"
                 wire:model="email"></x-input>
-            <span class="text-gray-100 text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+            <span class="text-gray-100 text-xs">
+                {{ $errors->has('email') ? $errors->first('email') :  'Lorem ipsum dolor sit amet consectetur adipisicing elit.' }}
+            </span>
             <x-button class="px-5 py-8 mt-5 w-80 bg-blue-500 justify-center">
                 Get In
             </x-button>
