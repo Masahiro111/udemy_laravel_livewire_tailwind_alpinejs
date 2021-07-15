@@ -1,4 +1,7 @@
-<div x-data="{showSubscribe:false, showSuccess:false}">
+<div x-data="{
+    showSubscribe: @entangle('showSubscribe'),
+    showSuccess: @entangle('showSuccess'),
+}">
     <div class="flex flex-col bg-indigo-900 w-full h-screen">
 
         <nav class="flex pt-5 justify-between container mx-auto text-indigo-200">
